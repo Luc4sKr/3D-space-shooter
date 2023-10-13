@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://ggv8kd7u2scv"]
+
+[ext_resource type="Script" path="res://scripts/enemy/enemy_spawner.gd" id="1_jseva"]
+
+[node name="enemy_spawner" type="Node3D"]
+script = ExtResource("1_jseva")
+
+[node name="timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

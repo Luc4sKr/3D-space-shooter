@@ -1,10 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://cuggwr1tdmq8b"]
+[gd_scene load_steps=3 format=3 uid="uid://cuggwr1tdmq8b"]
 
 [ext_resource type="PackedScene" uid="uid://bjj0pwcs3po2u" path="res://scenes/player.tscn" id="1_25ydi"]
+[ext_resource type="PackedScene" uid="uid://ggv8kd7u2scv" path="res://scenes/enemy_spawner.tscn" id="2_8h0xp"]
 
 [node name="main" type="Node3D"]
+
+[node name="camera" type="Camera3D" parent="."]
+far = 1000.0
 
 [node name="player" parent="." instance=ExtResource("1_25ydi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14.8729)
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="enemy_spawner" parent="." instance=ExtResource("2_8h0xp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -500)

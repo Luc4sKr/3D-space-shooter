@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cuggwr1tdmq8b"]
+
+[ext_resource type="PackedScene" uid="uid://d3qwb2tkkk382" path="res://assets/blender imports/player.gltf" id="1_ksr8d"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="player" parent="." instance=ExtResource("1_ksr8d")]

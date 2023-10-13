@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bn4614mv2twkw"]
+
+[ext_resource type="PackedScene" uid="uid://bddkq0kgtxi8t" path="res://assets/blender imports/enemy.gltf" id="1_3ix0o"]
+
+[node name="enemy" instance=ExtResource("1_3ix0o")]

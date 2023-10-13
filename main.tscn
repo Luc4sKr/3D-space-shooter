@@ -1,7 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://cuggwr1tdmq8b"]
 
-[ext_resource type="PackedScene" uid="uid://d3qwb2tkkk382" path="res://assets/blender imports/player.gltf" id="1_ksr8d"]
+[ext_resource type="PackedScene" uid="uid://bjj0pwcs3po2u" path="res://scenes/player.tscn" id="1_25ydi"]
 
-[node name="Node3D" type="Node3D"]
+[node name="main" type="Node3D"]
 
-[node name="player" parent="." instance=ExtResource("1_ksr8d")]
+[node name="player" parent="." instance=ExtResource("1_25ydi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14.8729)
+
+[node name="Camera3D" type="Camera3D" parent="."]

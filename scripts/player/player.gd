@@ -1,5 +1,8 @@
 extends CharacterBody3D
-
+ 
+@onready var guns = [$gun_0, $gun_1]
+var bullet_scene = preload("res://scenes/bullet.tscn")
+@onready var main = get_tree().current_scene
 
 const MAX_SPEED = 30
 const ACCELLERATION = 0.75
@@ -22,3 +25,17 @@ func _physics_process(delta):
 	
 	transform.origin.x = clamp(transform.origin.x, -15, 15)
 	transform.origin.y = clamp(transform.origin.y, -10, 10)
+	
+	for gun in guns:
+		gun.transform = self.transform
+	
+	shoot()
+	
+func shoot():
+	print(guns[0].position)
+	if Input.is_action_just_pressed("ui_accept"):
+		for gun in guns:
+			var bullet = bullet_scene.instantiate()
+			main.add_child(bullet)
+			bullet.transform = gun.transform
+			bullet.velocity = bullet.transform.basis.z * -10

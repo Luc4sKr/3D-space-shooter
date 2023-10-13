@@ -132,6 +132,12 @@ shadow_mesh = SubResource("ArrayMesh_a83by")
 [node name="player" type="CharacterBody3D"]
 script = ExtResource("1_adyna")
 
-[node name="PlayerMesh" type="MeshInstance3D" parent="."]
+[node name="player_mesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_qrpk3")
 skeleton = NodePath("")
+
+[node name="gun_0" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4, -0.3, -2.8)
+
+[node name="gun_1" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4, -0.3, -2.8)

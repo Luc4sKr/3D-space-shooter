@@ -9,5 +9,4 @@ func spawn():
 	enemy.transform.origin = transform.origin + Vector3(randi_range(-15, 15), randi_range(-10, 10), 0)
 
 func _on_timer_timeout():
-	print("TESTE")
 	spawn()

@@ -21,3 +21,6 @@ func _physics_process(delta):
 	
 	velocity = speed
 	move_and_slide()
+	
+	transform.origin.x = clamp(transform.origin.x, -15, 15)
+	transform.origin.y = clamp(transform.origin.y, -10, 10)

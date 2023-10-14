@@ -1,9 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://cuggwr1tdmq8b"]
+[gd_scene load_steps=8 format=3 uid="uid://cuggwr1tdmq8b"]
 
+[ext_resource type="Texture2D" uid="uid://cyyl0fvkgyl3l" path="res://assets/images/environment.png" id="1_5gd0w"]
 [ext_resource type="PackedScene" uid="uid://bjj0pwcs3po2u" path="res://scenes/player.tscn" id="1_25ydi"]
 [ext_resource type="PackedScene" uid="uid://ggv8kd7u2scv" path="res://scenes/enemy_spawner.tscn" id="2_8h0xp"]
+[ext_resource type="PackedScene" uid="uid://b70eni24oj58h" path="res://scenes/star_particules.tscn" id="2_wclxq"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_lukog"]
+panorama = ExtResource("1_5gd0w")
+
+[sub_resource type="Sky" id="Sky_i17u2"]
+sky_material = SubResource("PanoramaSkyMaterial_lukog")
+
+[sub_resource type="Environment" id="Environment_cdn3v"]
+background_mode = 2
+sky = SubResource("Sky_i17u2")
+glow_enabled = true
+glow_bloom = 0.2
 
 [node name="main" type="Node3D"]
+
+[node name="world" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_cdn3v")
+
+[node name="light" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 25.1661, 0)
+
+[node name="star_particules" parent="." instance=ExtResource("2_wclxq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -100)
 
 [node name="camera" type="Camera3D" parent="."]
 far = 1000.0

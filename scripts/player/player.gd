@@ -1,12 +1,15 @@
 extends CharacterBody3D
  
 @onready var guns = [$gun_0, $gun_1]
-var bullet_scene = preload("res://scenes/bullet.tscn")
 @onready var main = get_tree().current_scene
+var bullet_scene = preload("res://scenes/bullet.tscn")
 
 const MAX_SPEED = 30
 const ACCELLERATION = 0.75
+const MAX_COOLDOWN = 8
+
 var inputVector = Vector3()
+var cooldown = 0
 
 func _physics_process(delta):
 	inputVector.x = Input.get_action_raw_strength("ui_right") - Input.get_action_raw_strength("ui_left")
@@ -26,16 +29,16 @@ func _physics_process(delta):
 	transform.origin.x = clamp(transform.origin.x, -15, 15)
 	transform.origin.y = clamp(transform.origin.y, -10, 10)
 	
-	for gun in guns:
-		gun.transform = self.transform
+	shoot_manager(delta)
 	
-	shoot()
-	
-func shoot():
-	print(guns[0].position)
-	if Input.is_action_just_pressed("ui_accept"):
+func shoot_manager(delta):
+	if Input.is_action_pressed("ui_accept") and cooldown <= 0:
+		cooldown = MAX_COOLDOWN * delta
 		for gun in guns:
 			var bullet = bullet_scene.instantiate()
 			main.add_child(bullet)
-			bullet.transform = gun.transform
-			bullet.velocity = bullet.transform.basis.z * -10
+			bullet.global_position = gun.global_position
+			bullet.velocity = bullet.transform.basis.z * -100
+	
+	if cooldown > 0:
+		cooldown -= delta

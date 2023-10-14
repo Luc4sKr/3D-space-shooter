@@ -8,7 +8,8 @@ emission = Color(0.823529, 0.87451, 0, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_fpr10"]
 material = SubResource("StandardMaterial3D_df0u1")
-radius = 0.2
+radius = 0.4
+height = 2.5
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5g08l"]
 
@@ -24,3 +25,5 @@ mesh = SubResource("CapsuleMesh_fpr10")
 [node name="collision" type="CollisionShape3D" parent="hitbox"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_5g08l")
+
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

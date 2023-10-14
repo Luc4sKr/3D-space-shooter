@@ -1,6 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bjj0pwcs3po2u"]
+[gd_scene load_steps=10 format=3 uid="uid://bjj0pwcs3po2u"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_adyna"]
+[ext_resource type="Texture2D" uid="uid://ccgcwook0vx6u" path="res://assets/images/crosshair.png" id="2_810vs"]
+[ext_resource type="Texture2D" uid="uid://3my4j53ps8yy" path="res://assets/images/far_crosshair.png" id="2_qhpt8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v7c80"]
 resource_name = "Base Gray"
@@ -142,4 +144,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4, -0.3, -2.8)
 [node name="gun_1" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4, -0.3, -2.8)
 
-[node name="Crosshair" type="Sprite3D" parent="."]
+[node name="far_crosshair" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -50)
+texture = ExtResource("2_qhpt8")
+
+[node name="crosshair" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -25)
+texture = ExtResource("2_810vs")
